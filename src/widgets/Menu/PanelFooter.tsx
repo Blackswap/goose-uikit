@@ -9,7 +9,7 @@ import Skeleton from "../../components/Skeleton/Skeleton";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
 import * as IconModule from "./icons";
-import {  MENU_ENTRY_HEIGHT } from "./config";
+import { MENU_ENTRY_HEIGHT } from "./config";
 import { PanelProps, PushedProps } from "./types";
 
 interface Props extends PanelProps, PushedProps {}
@@ -53,15 +53,7 @@ const SocialEntry = styled.div`
   padding: 0 16px;
 `;
 
-const PanelFooter: React.FC<Props> = ({
-  isPushed,
-  pushNav,
-  toggleTheme,
-  isDark,
-  cakePriceUsd,
-  priceLink,
-                                        socials
-}) => {
+const PanelFooter: React.FC<Props> = ({ isPushed, pushNav, toggleTheme, isDark, cakePriceUsd, priceLink, socials }) => {
   if (!isPushed) {
     return (
       <Container>

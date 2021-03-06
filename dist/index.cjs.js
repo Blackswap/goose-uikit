@@ -74,8 +74,8 @@ var getThemeValue = function (path, fallback) { return function (theme) {
     return get__default['default'](theme, path, fallback);
 }; };
 
-var rotate$1 = styled.keyframes(templateObject_1$K || (templateObject_1$K = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var spinStyle = styled.css(templateObject_2$g || (templateObject_2$g = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
+var rotate = styled.keyframes(templateObject_1$K || (templateObject_1$K = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
+var spinStyle = styled.css(templateObject_2$g || (templateObject_2$g = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate);
 var Svg = styled__default['default'].svg(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"], ["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme, color = _a.color;
     return getThemeValue("colors." + color, color)(theme);
@@ -581,7 +581,7 @@ var Details = styled__default['default'].div(templateObject_2$f || (templateObje
     return (hasHandler ? withHandlerSpacing + "px" : "12px");
 });
 var CloseHandler = styled__default['default'].div(templateObject_3$7 || (templateObject_3$7 = __makeTemplateObject(["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"], ["\n  border-radius: 0 16px 16px 0;\n  right: 8px;\n  position: absolute;\n  top: 8px;\n"])));
-var StyledAlert = styled__default['default'](Flex)(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"], ["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"])), function (_a) {
+var StyledAlert = styled__default['default'](Flex)(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"], ["\n  position: relative;\n  background-color: ", ";\n  border-radius: 16px;\n  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);\n"])), function (_a) {
     var theme = _a.theme;
     return theme.alert.background;
 });
@@ -598,7 +598,7 @@ var Alert = function (_a) {
             React__default['default'].createElement(IconButton, { size: "sm", variant: "text", onClick: onClick },
                 React__default['default'].createElement(Icon$P, { width: "24px", color: "currentColor" }))))));
 };
-var templateObject_1$F, templateObject_2$f, templateObject_3$7, templateObject_4$3;
+var templateObject_1$F, templateObject_2$f, templateObject_3$7, templateObject_4$4;
 
 var Separator = styled__default['default'].div(templateObject_1$E || (templateObject_1$E = __makeTemplateObject(["\n  align-items: center;\n  color: currentColor;\n  display: flex;\n  justify-content: center;\n  padding-left: 4px;\n  padding-right: 4px;\n\n  ", " {\n    padding-left: 8px;\n    padding-right: 8px;\n  }\n\n  ", " {\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"], ["\n  align-items: center;\n  color: currentColor;\n  display: flex;\n  justify-content: center;\n  padding-left: 4px;\n  padding-right: 4px;\n\n  ", " {\n    padding-left: 8px;\n    padding-right: 8px;\n  }\n\n  ", " {\n    padding-left: 16px;\n    padding-right: 16px;\n  }\n"])), function (_a) {
     var theme = _a.theme;
@@ -1166,19 +1166,43 @@ var Progress = function (_a) {
         secondaryStep ? React__default['default'].createElement(Bar, { style: { width: stepGuard(secondaryStep) + "%" } }) : null));
 };
 
-var rotate = styled.keyframes(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var SpinnerIcon = function (props) {
-    return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 96 96" }, props),
-        React__default['default'].createElement("image", { width: "96", height: "96", href: "/images/egg/9.png" })));
+var baseColors = {
+    failure: "#AD1457",
+    primary: "#FF5E69",
+    primaryBright: "#9c927d",
+    primaryDark: "#504835",
+    secondary: "#68899F",
+    success: "#40C4FF",
+    warning: "#FFB237",
+    text: "#403C42",
+    input: "#F8F6EF",
+    borderColor: "#F8F6EF",
+    overlay: "#090907",
+    buttonDisabled: "#BDC2C4",
+    backgroundDisabled: "#E9EAEB",
 };
-var Container$3 = styled__default['default'].div(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["\n  position: relative;\n"], ["\n  position: relative;\n"])));
-var RotatingPancakeIcon = styled__default['default'](SpinnerIcon)(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  animation: ", " 2s linear infinite;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  animation: ", " 2s linear infinite;\n  transform: translate3d(0, 0, 0);\n"])), rotate);
+var brandColors = {
+    binance: "#F0B90B",
+};
+var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#FAF9FA", title: "#45bfff", menu: "#45bfff", icon: "#403C42", contrast: "#403C42", invertedContrast: "#FFFFFF", textDisabled: "#BDC2C4", card: "#FFFFFF", cardHeader: "#7E989D", textSubtle: "#403C42", tertiary: "#F8F6EF", gradients: {
+        bubblegum: "#97BBC7B0;",
+    } });
+var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#000", title: "#5EC7FF", menu: "#45bfff", icon: "#FFF", contrast: "#FFFFFF", invertedContrast: "#191326", tertiary: "#AAB4BB", text: "#FFFFFF", textDisabled: "#666171", textSubtle: "#FFF", borderColor: baseColors.primaryBright, card: "#1e1e1e", cardHeader: "#1e1e1e", gradients: {
+        bubblegum: baseColors.primary,
+    } });
+
+var Container$3 = styled__default['default'].div(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  position: relative;\n  width: ", "rem;\n  height: ", "rem;\n"], ["\n  position: relative;\n  width: ", "rem;\n  height: ", "rem;\n"])), function (props) { return props.size; }, function (props) { return props.size; });
+var spin = styled.keyframes(templateObject_2$a || (templateObject_2$a = __makeTemplateObject(["\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n"], ["\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n"])));
+var opcacity = styled.keyframes(templateObject_3$6 || (templateObject_3$6 = __makeTemplateObject(["\n  0%   { opacity:1; }\n  50%  { opacity:0; }\n  100% { opacity:1; }\n"], ["\n  0%   { opacity:1; }\n  50%  { opacity:0; }\n  100% { opacity:1; }\n"])));
+var FloatingTokenIcon = styled__default['default'](Icon$J)(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n  position: absolute;\n  transform: translate(25%, 25%);\n  animation: ", " 1.5s linear infinite;\n"], ["\n  position: absolute;\n  transform: translate(25%, 25%);\n  animation: ", " 1.5s linear infinite;\n"])), opcacity);
+var Loader = styled__default['default'].div(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n  position: absolute;\n  border: 0.4em solid rgba(0, 0, 0, 0.1);\n  border-top: 0.4em solid ", ";\n  border-radius: 50%;\n  width: ", "rem;\n  height: ", "rem;\n  animation: ", " 1s linear infinite;\n"], ["\n  position: absolute;\n  border: 0.4em solid rgba(0, 0, 0, 0.1);\n  border-top: 0.4em solid ", ";\n  border-radius: 50%;\n  width: ", "rem;\n  height: ", "rem;\n  animation: ", " 1s linear infinite;\n"])), function (props) { return props.color; }, function (props) { return props.size; }, function (props) { return props.size; }, spin);
 var Spinner = function (_a) {
-    var _b = _a.size, size = _b === void 0 ? 128 : _b;
-    return (React__default['default'].createElement(Container$3, null,
-        React__default['default'].createElement(RotatingPancakeIcon, { width: size * 0.5 + "px" })));
+    var _b = _a.size, size = _b === void 0 ? 4 : _b, _c = _a.color, color = _c === void 0 ? baseColors.primary : _c;
+    return (React__default['default'].createElement(Container$3, { size: size },
+        React__default['default'].createElement(Loader, { color: color, size: size }),
+        React__default['default'].createElement(FloatingTokenIcon, { width: size / 1.5 + "rem" })));
 };
-var templateObject_1$j, templateObject_2$a, templateObject_3$6;
+var templateObject_1$j, templateObject_2$a, templateObject_3$6, templateObject_4$3, templateObject_5$2;
 
 var animation = {
     WAVES: "waves",
@@ -1548,31 +1572,6 @@ var useTable = function (columns, data, options) {
         toggleAllState: state.toggleAllState,
     };
 };
-
-var baseColors = {
-    failure: "#AD1457",
-    primary: "#FF5E69",
-    primaryBright: "#9c927d",
-    primaryDark: "#504835",
-    secondary: "#68899F",
-    success: "#40C4FF",
-    warning: "#FFB237",
-    text: "#403C42",
-    input: "#F8F6EF",
-    borderColor: "#F8F6EF",
-    overlay: "#090907",
-    buttonDisabled: "#BDC2C4",
-    backgroundDisabled: "#E9EAEB",
-};
-var brandColors = {
-    binance: "#F0B90B",
-};
-var lightColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#FAF9FA", title: "#45bfff", menu: "#45bfff", icon: "#403C42", contrast: "#403C42", invertedContrast: "#FFFFFF", textDisabled: "#BDC2C4", card: "#FFFFFF", cardHeader: "#7E989D", textSubtle: "#403C42", tertiary: "#F8F6EF", gradients: {
-        bubblegum: "#97BBC7B0;",
-    } });
-var darkColors = __assign(__assign(__assign({}, baseColors), brandColors), { background: "#000", title: "#5EC7FF", menu: "#45bfff", icon: "#FFF", contrast: "#FFFFFF", invertedContrast: "#191326", tertiary: "#AAB4BB", text: "#FFFFFF", textDisabled: "#666171", textSubtle: "#FFF", borderColor: baseColors.primaryBright, card: "#1e1e1e", cardHeader: "#1e1e1e", gradients: {
-        bubblegum: baseColors.primary,
-    } });
 
 var breakpointMap = {
     xs: 370,
