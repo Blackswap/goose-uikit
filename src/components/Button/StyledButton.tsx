@@ -46,10 +46,11 @@ const getButtonVariantProp = (prop: keyof ButtonThemeVariant) => ({
 };
 
 const StyledButton = styled.button<ButtonProps>`
+  margin: 0px;
   align-items: center;
   background-color: ${getButtonVariantProp("background")};
   border: ${getButtonVariantProp("border")};
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.radii.small};
   box-shadow: ${getButtonVariantProp("boxShadow")};
   color: ${getButtonVariantProp("color")};
   cursor: pointer;

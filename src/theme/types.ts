@@ -19,6 +19,8 @@ export type Radii = {
 };
 
 export type Shadows = {
+  elevation: string;
+  base: string;
   level1: string;
   active: string;
   success: string;
@@ -27,12 +29,25 @@ export type Shadows = {
   inset: string;
 };
 
+
+export type Padding = {
+  small: string;
+  default: string;
+  card: string;
+  farmCard: string;
+  circle: string;
+};
+
 export type Gradients = {
   bubblegum: string;
 };
 
 export type Colors = {
   primary: string;
+  icon: string;
+  title: string;
+  menu: string;
+  buttonDisabled: string;
   primaryBright: string;
   primaryDark: string;
   secondary: string;
@@ -50,6 +65,8 @@ export type Colors = {
   textSubtle: string;
   borderColor: string;
   card: string;
+  cardHeader: string;
+  overlay: string;
 
   // Gradients
   gradients: Gradients;

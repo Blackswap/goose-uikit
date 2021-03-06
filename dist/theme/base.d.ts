@@ -1,28 +1,20 @@
-import { MediaQueries, Breakpoints, Spacing } from "./types";
+import { MediaQueries, Breakpoints, Spacing, Shadows } from "./types";
 export declare const breakpointMap: {
     [key: string]: number;
 };
-export declare const shadows: {
-    level1: string;
-    active: string;
-    success: string;
-    warning: string;
-    focus: string;
-    inset: string;
-};
+export declare const shadows: Shadows;
 declare const _default: {
+    font: {
+        name: string;
+        weight: {
+            base: number;
+        };
+    };
     siteWidth: number;
     breakpoints: Breakpoints;
     mediaQueries: MediaQueries;
     spacing: Spacing;
-    shadows: {
-        level1: string;
-        active: string;
-        success: string;
-        warning: string;
-        focus: string;
-        inset: string;
-    };
+    shadows: Shadows;
     radii: {
         small: string;
         default: string;
@@ -32,6 +24,13 @@ declare const _default: {
     zIndices: {
         dropdown: number;
         modal: number;
+    };
+    padding: {
+        small: string;
+        default: string;
+        card: string;
+        farmCard: string;
+        circle: string;
     };
 };
 export default _default;

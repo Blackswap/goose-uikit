@@ -7,6 +7,12 @@ export declare const baseColors: {
     secondary: string;
     success: string;
     warning: string;
+    text: string;
+    input: string;
+    borderColor: string;
+    overlay: string;
+    buttonDisabled: string;
+    backgroundDisabled: string;
 };
 export declare const brandColors: {
     binance: string;
