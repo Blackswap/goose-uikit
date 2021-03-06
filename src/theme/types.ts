@@ -29,7 +29,6 @@ export type Shadows = {
   inset: string;
 };
 
-
 export type Padding = {
   small: string;
   default: string;

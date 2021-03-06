@@ -1,5 +1,6 @@
 import React from "react";
 interface Props {
+    appName: string;
     isPushed: boolean;
     isDark: boolean;
     togglePush: () => void;

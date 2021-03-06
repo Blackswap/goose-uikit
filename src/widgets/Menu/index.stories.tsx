@@ -21,7 +21,9 @@ export const Connected: React.FC = () => {
   return (
     <BrowserRouter>
       <Menu
-        account="0xbdda50183d817c3289f895a4472eb475967dc980"
+          appName="BlackSwap"
+
+          account="0xbdda50183d817c3289f895a4472eb475967dc980"
         login={noop}
         logout={noop}
         isDark={false}
@@ -60,6 +62,7 @@ export const NotConnected: React.FC = () => {
   return (
     <BrowserRouter>
       <Menu
+        appName="BlackSwap"
         account={null}
         login={noop}
         logout={noop}
@@ -133,6 +136,7 @@ export const WithProfile: React.FC = () => {
   return (
     <BrowserRouter>
       <Menu
+        appName="BlackSwap"
         account="0xbdda50183d817c3289f895a4472eb475967dc980"
         login={noop}
         logout={noop}

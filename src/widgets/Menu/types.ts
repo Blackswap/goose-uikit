@@ -38,6 +38,13 @@ export interface MenuEntry {
   initialOpenState?: boolean;
 }
 
+export interface SocialEntry {
+  label: string;
+  icon: string;
+  items?: SocialEntry[];
+  href?: string;
+}
+
 export interface PanelProps {
   isDark: boolean;
   toggleTheme: (isDark: boolean) => void;
@@ -46,10 +53,12 @@ export interface PanelProps {
   langs: LangType[];
   setLang: (lang: LangType) => void;
   links: Array<MenuEntry>;
+  socials: Array<SocialEntry>;
   priceLink: string;
 }
 
 export interface NavProps extends PanelProps {
+  appName: string,
   account?: string;
   login: Login;
   profile?: Profile;
