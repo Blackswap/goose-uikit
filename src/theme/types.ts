@@ -78,3 +78,11 @@ export type ZIndices = {
   dropdown: number;
   modal: number;
 };
+
+export type Font = {
+  name: string;
+  weight: {
+    base: number;
+  };
+};
+

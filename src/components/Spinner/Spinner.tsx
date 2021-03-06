@@ -35,12 +35,12 @@ export const Loader = styled.div<{ size: number; color: string }>`
 `;
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 4, color = baseColors.primary }) => {
-    return (
-        <Container size={size}>
-            <Loader color={color} size={size} />
-            <FloatingTokenIcon width={`${size / 1.5}rem`} />
-        </Container>
-    );
+  return (
+    <Container size={size}>
+      <Loader color={color} size={size} />
+      <FloatingTokenIcon width={`${size / 1.5}rem`} />
+    </Container>
+  );
 };
 
 export default Spinner;

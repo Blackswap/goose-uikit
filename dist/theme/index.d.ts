@@ -5,8 +5,9 @@ import { RadioTheme } from "../components/Radio/types";
 import { ToggleTheme } from "../components/Toggle/types";
 import { NavTheme } from "../widgets/Menu/types";
 import { ModalTheme } from "../widgets/Modal/types";
-import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices, Padding } from "./types";
+import { Colors, Breakpoints, MediaQueries, Spacing, Shadows, Radii, ZIndices, Padding, Font } from "./types";
 export interface PancakeTheme {
+    font: Font;
     siteWidth: number;
     isDark: boolean;
     alert: AlertTheme;

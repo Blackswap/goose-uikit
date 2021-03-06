@@ -66,3 +66,9 @@ export declare type ZIndices = {
     dropdown: number;
     modal: number;
 };
+export declare type Font = {
+    name: string;
+    weight: {
+        base: number;
+    };
+};
