@@ -2208,71 +2208,6 @@ var links = [
         ],
     },
 ];
-var socials = [
-    {
-        label: "Telegram",
-        icon: "TelegramIcon",
-        items: [
-            {
-                label: "English",
-                href: "https://t.me/goosedefi",
-            },
-            // {
-            //   label: "Bahasa Indonesia",
-            //   href: "https://t.me/PancakeSwapIndonesia",
-            // },
-            // {
-            //   label: "中文",
-            //   href: "https://t.me/PancakeSwap_CN",
-            // },
-            // {
-            //   label: "Tiếng Việt",
-            //   href: "https://t.me/PancakeSwapVN",
-            // },
-            // {
-            //   label: "Italiano",
-            //   href: "https://t.me/pancakeswap_ita",
-            // },
-            // {
-            //   label: "русский",
-            //   href: "https://t.me/pancakeswap_ru",
-            // },
-            // {
-            //   label: "Türkiye",
-            //   href: "https://t.me/pancakeswapturkiye",
-            // },
-            // {
-            //   label: "Português",
-            //   href: "https://t.me/PancakeSwapPortuguese",
-            // },
-            // {
-            //   label: "Español",
-            //   href: "https://t.me/PancakeswapEs",
-            // },
-            // {
-            //   label: "日本語",
-            //   href: "https://t.me/pancakeswapjp",
-            // },
-            // {
-            //   label: "Français",
-            //   href: "https://t.me/pancakeswapfr",
-            // },
-            {
-                label: "Announcements",
-                href: "https://t.me/goosefinanceann",
-            },
-            // {
-            //   label: "Whale Alert",
-            //   href: "https://t.me/PancakeSwapWhales",
-            // },
-        ],
-    },
-    {
-        label: "Twitter",
-        icon: "TwitterIcon",
-        href: "https://twitter.com/FinanceGoose",
-    },
-];
 var MENU_HEIGHT = 64;
 var MENU_ENTRY_HEIGHT = 48;
 var SIDEBAR_WIDTH_FULL = 240;
@@ -2378,7 +2313,7 @@ var PanelBody = function (_a) {
 var templateObject_1$9;
 
 var Icons = IconModule;
-var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon, LanguageIcon = Icons.LanguageIcon;
+var MoonIcon = Icons.MoonIcon, SunIcon = Icons.SunIcon;
 var Container = styled.div(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  flex: none;\n  padding: 8px 4px;\n  background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"], ["\n  flex: none;\n  padding: 8px 4px;\n  background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"])), function (_a) {
     var theme = _a.theme;
     return theme.nav.background;
@@ -2387,7 +2322,7 @@ var PriceLink = styled.a(templateObject_2$3 || (templateObject_2$3 = __makeTempl
 var SettingsEntry = styled.div(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 8px;\n"])), MENU_ENTRY_HEIGHT);
 var SocialEntry = styled.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"], ["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: ", "px;\n  padding: 0 16px;\n"])), MENU_ENTRY_HEIGHT);
 var PanelFooter = function (_a) {
-    var isPushed = _a.isPushed, pushNav = _a.pushNav, toggleTheme = _a.toggleTheme, isDark = _a.isDark, cakePriceUsd = _a.cakePriceUsd, currentLang = _a.currentLang, langs = _a.langs, setLang = _a.setLang, priceLink = _a.priceLink;
+    var isPushed = _a.isPushed, pushNav = _a.pushNav, toggleTheme = _a.toggleTheme, isDark = _a.isDark, cakePriceUsd = _a.cakePriceUsd, priceLink = _a.priceLink, socials = _a.socials;
     if (!isPushed) {
         return (React.createElement(Container, null,
             React.createElement(IconButton, { variant: "text", onClick: function () { return pushNav(true); } },
@@ -2413,11 +2348,7 @@ var PanelFooter = function (_a) {
                 React.createElement(Flex, { alignItems: "center" },
                     React.createElement(SunIcon, { color: isDark ? "textDisabled" : "text", width: "24px" }),
                     React.createElement(Text, { color: "textDisabled", mx: "4px" }, "/"),
-                    React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))),
-            React.createElement(Dropdown, { position: "top-right", target: React.createElement(Button, { variant: "text", startIcon: React.createElement(LanguageIcon, { color: "textSubtle", width: "24px" }) },
-                    React.createElement(Text, { color: "textSubtle" }, currentLang === null || currentLang === void 0 ? void 0 : currentLang.toUpperCase())) }, langs.map(function (lang) { return (React.createElement(MenuButton, { key: lang.code, fullWidth: true, onClick: function () { return setLang(lang); }, 
-                // Safari fix
-                style: { minHeight: "32px", height: "auto" } }, lang.language)); })))));
+                    React.createElement(MoonIcon, { color: isDark ? "text" : "textDisabled", width: "24px" }))))));
 };
 var templateObject_1$8, templateObject_2$3, templateObject_3$1, templateObject_4$1;
 
@@ -2689,16 +2620,16 @@ var Avatar = function (_a) {
 };
 var templateObject_1$4, templateObject_2$1;
 
-var Wrapper = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\nposition: relative;\nwidth: 100%;\n"], ["\nposition: relative;\nwidth: 100%;\n"])));
-var StyledNav = styled.nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\nposition: fixed;\ntop: ", ";\nleft: 0;\ntransition: top 0.2s;\ndisplay: flex;\njustify-content: space-between;\nalign-items: center;\npadding-left: 8px;\npadding-right: 16px;\nwidth: 100%;\nheight: ", "px;\nbackground-color: ", ";\nborder-bottom: solid 2px rgba(133, 133, 133, 0.1);\nz-index: 20;\ntransform: translate3d(0, 0, 0);\n"], ["\nposition: fixed;\ntop: ", ";\nleft: 0;\ntransition: top 0.2s;\ndisplay: flex;\njustify-content: space-between;\nalign-items: center;\npadding-left: 8px;\npadding-right: 16px;\nwidth: 100%;\nheight: ", "px;\nbackground-color: ", ";\nborder-bottom: solid 2px rgba(133, 133, 133, 0.1);\nz-index: 20;\ntransform: translate3d(0, 0, 0);\n"])), function (_a) {
+var Wrapper = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
+var StyledNav = styled.nav(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: 100%;\n  height: ", "px;\n  background-color: ", ";\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 }, MENU_HEIGHT, function (_a) {
     var theme = _a.theme;
     return theme.nav.background;
 });
-var BodyWrapper = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\nposition: relative;\ndisplay: flex;\n"], ["\nposition: relative;\ndisplay: flex;\n"])));
-var Inner = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\nflex-grow: 1;\nmargin-top: ", ";\ntransition: margin-top 0.2s;\ntransform: translate3d(0, 0, 0);\n", " {\n  margin-left: ", ";\n}\n"], ["\nflex-grow: 1;\nmargin-top: ", ";\ntransition: margin-top 0.2s;\ntransform: translate3d(0, 0, 0);\n", " {\n  margin-left: ", ";\n}\n"])), function (_a) {
+var BodyWrapper = styled.div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
+var Inner = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? MENU_HEIGHT + "px" : 0);
 }, function (_a) {
@@ -2708,7 +2639,7 @@ var Inner = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObj
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
-var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\nposition: fixed;\nheight: 100%;\n\n", " {\n  display: none;\n}\n"], ["\nposition: fixed;\nheight: 100%;\n\n", " {\n  display: none;\n}\n"])), function (_a) {
+var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });

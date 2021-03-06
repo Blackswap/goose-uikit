@@ -7,11 +7,11 @@ import { HamburgerIcon, HamburgerCloseIcon } from "./icons";
 import MenuButton from "./MenuButton";
 
 interface Props {
-    appName: string;
-    isPushed: boolean;
-    isDark: boolean;
-    togglePush: () => void;
-    href: string;
+  appName: string;
+  isPushed: boolean;
+  isDark: boolean;
+  togglePush: () => void;
+  href: string;
 }
 
 const StyledLink = styled(Link)`
@@ -38,7 +38,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-
 const StyledAppName = styled.span`
   display: flex;
   align-items: center;
@@ -47,37 +46,36 @@ const StyledAppName = styled.span`
   color: ${({ theme }) => theme.colors.title};
 `;
 
-
 const Logo: React.FC<Props> = ({ appName, isPushed, togglePush, href }) => {
-    const isAbsoluteUrl = href.startsWith("http");
-    const innerLogo = (
-        <>
-            <LogoIcon className="mobile-icon" color="title" />
-            <LogoIcon className="desktop-icon" color="title" />
-            <StyledAppName className="desktop-name">{appName}</StyledAppName>
-        </>
-    );
+  const isAbsoluteUrl = href.startsWith("http");
+  const innerLogo = (
+    <>
+      <LogoIcon className="mobile-icon" color="title" />
+      <LogoIcon className="desktop-icon" color="title" />
+      <StyledAppName className="desktop-name">{appName}</StyledAppName>
+    </>
+  );
 
-    return (
-        <Flex>
-            <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
-                {isPushed ? (
-                    <HamburgerCloseIcon width="24px" color="textSubtle" />
-                ) : (
-                    <HamburgerIcon width="24px" color="textSubtle" />
-                )}
-            </MenuButton>
-            {isAbsoluteUrl ? (
-                <StyledLink as="a" href={href} aria-label="Pancake home page">
-                    {innerLogo}
-                </StyledLink>
-            ) : (
-                <StyledLink to={href} aria-label="Pancake home page">
-                    {innerLogo}
-                </StyledLink>
-            )}
-        </Flex>
-    );
+  return (
+    <Flex>
+      <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
+        {isPushed ? (
+          <HamburgerCloseIcon width="24px" color="textSubtle" />
+        ) : (
+          <HamburgerIcon width="24px" color="textSubtle" />
+        )}
+      </MenuButton>
+      {isAbsoluteUrl ? (
+        <StyledLink as="a" href={href} aria-label="Pancake home page">
+          {innerLogo}
+        </StyledLink>
+      ) : (
+        <StyledLink to={href} aria-label="Pancake home page">
+          {innerLogo}
+        </StyledLink>
+      )}
+    </Flex>
+  );
 };
 
 export default Logo;

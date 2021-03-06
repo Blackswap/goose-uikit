@@ -58,7 +58,7 @@ export interface PanelProps {
 }
 
 export interface NavProps extends PanelProps {
-  appName: string,
+  appName: string;
   account?: string;
   login: Login;
   profile?: Profile;
